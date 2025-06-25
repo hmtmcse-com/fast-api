@@ -38,7 +38,7 @@ async def websocket_endpoint(websocket: WebSocket):
 
 
 # HTTP endpoint to send data to all connected WebSocket clients
-@app.post("/send")
+@app.get("/send")
 async def send_message(message: str):
     await manager.broadcast(message)
     return {"message": "Message sent to WebSocket clients"}
@@ -48,3 +48,4 @@ if __name__ == "__main__":
     # Don't use reload=True here
     uvicorn.run(app, host="127.0.0.1", port=8000)
     # http://127.0.0.1:8000/docs
+    # http://127.0.0.1:8000/send?message=Hello

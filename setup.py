@@ -11,7 +11,8 @@ env = os.environ.get('source')
 def get_dependencies():
     dependency = [
         "uvicorn",
-        "fastapi"
+        "fastapi",
+        "websockets"
     ]
 
     if env and env == "dev":
